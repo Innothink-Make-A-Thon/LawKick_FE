@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import EachMarker from "./main_component/EachMarker";
+import MainBottomBar from "./main_component/MainBottomBar";
 import GPSButton from './main_img/GPS_button.png';
 import RotationButton from './main_img/rotation_button.png';
 import SsingMarker from './main_img/씽씽_Marker.png';
@@ -45,6 +45,7 @@ const dummy = {
 
 const MainPage = () => {
 
+    const [showKickBox, setShowKickBox] = useState();
     // const [myLocation, setMyLocation] = useState({});
 
     // useEffect(()=>{
@@ -59,8 +60,8 @@ const MainPage = () => {
         if (!naver) return;
 
         //지도에 삽입할 버튼 (html 태그 string 타입으로 전달해야 함)
-        let locationBtnHtml = `<img src=${GPSButton} alt= "my location btn" style="margin-left: 0.7rem; margin-bottom: 1.3rem"/>`;
-        let rotationBtnHtml = `<img src=${RotationButton} alt="rotate btn" style="margin-left: 0.7rem; margin-bottom: 0.3rem"/>`
+        let locationBtnHtml = `<img src=${GPSButton} alt= "my location btn" style="margin-left: 0.7rem; margin-bottom: 15vh"/>`;
+        let rotationBtnHtml = `<img src=${RotationButton} alt="rotate btn" style="cursor: pointer; margin-left: 0.7rem; margin-bottom: 0.3rem"/>`
 
         let mapOptions = { //지도 옵션
             // center: new naver.maps.LatLng(myLocation.latitude, myLocation.longitude),
@@ -145,8 +146,8 @@ const MainPage = () => {
 
     return (
         <MainContainer>
-            <NaverMap id="map">
-            </NaverMap>
+            <NaverMap id="map"></NaverMap>
+            <MainBottomBar></MainBottomBar>
         </MainContainer>
     );
 };
