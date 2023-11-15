@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
-import { useNavigate } from "react-router-dom";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -17,24 +16,19 @@ const AskText = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
   position: relative;
-  margin-left: -10rem;
   margin-top: 1.5rem;
+  margin-left: 1.5rem;
 `;
 
-const LoginText = styled.div`
-  color: #1D1D1E;
-  font-family: Pretendard Variable;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px; /* 120% */
-  text-align: left;
-  white-space: pre-line;
+const TextContainer2 = styled.div`
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
   margin-left: 1rem;
+  margin-top: 2rem;
 `;
 
 const InputBox = styled.input`
@@ -58,60 +52,43 @@ const InputBox = styled.input`
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 `;
 
-const TextContainer2 = styled.div`
-  flex-direction: row;
-  justify-content: space-evenly;
-  position: relative;
-  margin-left: 1rem;
-  margin-top: 2rem;
-`;
+function Brand2() {
+  const [inputValue, setInputValue] = useState("");
+  const isNextBtnEnabled = inputValue.trim() !== "";
 
-function SignIn2() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const isNextBtnEnabled = email && password;
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
 
   const handleNextBtnClick = () => {
     // Handle the logic when NextBtn is clicked
     console.log("Next button clicked");
-    // Navigate to the desired route
-    navigate("/company/brand1");
   };
 
   return (
     <div>
       <Backbtn />
       <TextContainer>
-        <AskText>로그인을 해주세요</AskText>
+        <AskText>
+          브랜드 고유 색상 코드를 <br />
+          입력해주세요!
+        </AskText>
       </TextContainer>
 
       <TextContainer2>
-        <LoginText>이메일(아이디)</LoginText>
         <InputBox
-          placeholder="example@gmail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder="#000000"
+          value={inputValue}
+          onChange={handleInputChange}
         />
       </TextContainer2>
-
-      <TextContainer2>
-        <LoginText>비밀번호</LoginText>
-        <InputBox
-          type="password"
-          placeholder="비밀번호 입력"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </TextContainer2>
-      
       <NextBtn
         isEnabled={isNextBtnEnabled}
         onClick={handleNextBtnClick}
-        buttonText="로그인"
+        buttonText="다음"
       />
     </div>
   );
 }
 
-export default SignIn2;
+export default Brand2;

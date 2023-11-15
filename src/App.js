@@ -5,6 +5,7 @@ import Signup from "./signup/SignUp"
 import Signin1 from "./signin/SignIn"
 import Signin2 from "./signin/SignIn2"
 import Brand1 from "./brand/brand1"
+import Brand2 from "./brand/brand2"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/personal/signin" element={<Signin1 />} />
           <Route path="/company/signin" element={<Signin2 />} />
           <Route path="/company/brand1" element={<Brand1 />} />
+          <Route path="/company/brand2" element={<Brand2 />} />
         </Routes>
       </BrowserRouter>
   );

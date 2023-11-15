@@ -54,6 +54,7 @@ const InputBox = styled.input`
     border-color: #fdc727;
     outline: none;
   }
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 `;
 
 const TextContainer2 = styled.div`
@@ -95,7 +96,7 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </TextContainer2>
-      
+
       <NextBtn
         isEnabled={isNextBtnEnabled}
         onClick={() => console.log("Next button clicked")}

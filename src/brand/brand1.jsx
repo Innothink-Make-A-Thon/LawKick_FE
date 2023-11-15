@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
+import { useNavigate } from "react-router-dom";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -55,6 +56,8 @@ const Dropdown = styled.select`
   &:focus {
     outline: none;
   }
+
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 `;
 
 const ArrowIcon = styled.span`
@@ -74,8 +77,14 @@ function Brand1() {
     setIsOpen(!isOpen);
   };
 
-  // Enable NextBtn when a brand is selected
+
   const isNextBtnEnabled = !!selectedBrand;
+
+  const navigate = useNavigate();
+
+  const handleNextBtnClick = () => {
+    navigate("/company/brand2");
+  };
 
   return (
     <div>
@@ -107,7 +116,7 @@ function Brand1() {
         <ArrowIcon isOpen={isOpen}>&#9660;</ArrowIcon>
       </DropdownContainer>
 
-      <NextBtn isEnabled={isNextBtnEnabled} onClick={() => console.log("Next button clicked")} buttonText="다음" />
+      <NextBtn isEnabled={isNextBtnEnabled} onClick={handleNextBtnClick} buttonText="다음" />
     </div>
   );
 }
