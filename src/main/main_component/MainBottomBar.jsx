@@ -20,7 +20,9 @@ const BottomBarBox = styled.div`
     z-index: 100;
 `;
 
-const BottomBarNewsBtn = styled.div``;
+const BottomBarNewsBtn = styled.div`
+    cursor: pointer;
+`;
 
 const BtnImg = styled.img`
     width: 3.5rem;

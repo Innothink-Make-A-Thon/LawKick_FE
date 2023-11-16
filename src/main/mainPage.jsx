@@ -9,6 +9,7 @@ import DeerMarker from './main_img/deer_Marker.png';
 import GcooMarker from './main_img/Gcooter_Marker.png';
 import KickMarker from './main_img/Kickhoing_Marker.png';
 import SwingMarker from './main_img/Swing_Marker.png';
+import MainKickBox from "./main_component/MainKickBox";
 
 const MainContainer = styled.div`
     width: 100vw;
@@ -45,7 +46,7 @@ const dummy = {
 
 const MainPage = () => {
 
-    const [showKickBox, setShowKickBox] = useState();
+    const [showKickBox, setShowKickBox] = useState(false);
     // const [myLocation, setMyLocation] = useState({});
 
     // useEffect(()=>{
@@ -60,7 +61,7 @@ const MainPage = () => {
         if (!naver) return;
 
         //지도에 삽입할 버튼 (html 태그 string 타입으로 전달해야 함)
-        let locationBtnHtml = `<img src=${GPSButton} alt= "my location btn" style="margin-left: 0.7rem; margin-bottom: 15vh"/>`;
+        let locationBtnHtml = `<img src=${GPSButton} alt= "my location btn" style="cursor: pointer; margin-left: 0.7rem; margin-bottom: ${showKickBox ? '26vh' : '15vh'}"/>`;
         let rotationBtnHtml = `<img src=${RotationButton} alt="rotate btn" style="cursor: pointer; margin-left: 0.7rem; margin-bottom: 0.3rem"/>`
 
         let mapOptions = { //지도 옵션
@@ -99,10 +100,12 @@ const MainPage = () => {
                     // size: new naver.maps.Size(50, 52),
                     origin: new naver.maps.Point(0, 0),
                     anchor: new naver.maps.Point(25, 26),
-                }
+                },
+                animation: naver.maps.Animation.DROP,
             };
     
             let marker = new naver.maps.Marker(markerOptions);
+            marker.setClickable(true);
         });
 
         naver.maps.Event.once(map, 'init', () => { //왼쪽 하단 버튼 클릭 시 생기는 이벤트 처리
@@ -148,6 +151,8 @@ const MainPage = () => {
         <MainContainer>
             <NaverMap id="map"></NaverMap>
             <MainBottomBar></MainBottomBar>
+            { showKickBox && <MainKickBox></MainKickBox>}
+            {/* 각 마커 클릭 시에 MainKickBox가 활성화 되고 일련번호, 브랜드 번호를 전해줘야 함.. 이걸 어떻게 구현할것인가.. 낼 하자 */}
         </MainContainer>
     );
 };
