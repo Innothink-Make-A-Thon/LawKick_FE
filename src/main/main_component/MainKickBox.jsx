@@ -13,12 +13,13 @@ const BottomKickBox = styled.div`
     justify-content: space-evenly;
     align-items: center;
     position: fixed;
-    bottom: 0;
+    bottom: ${props => (props.isVisible ? "0" : "-28vh")};
     left: 0;
     right: 0;
-    height: 25vh;
+    height: 28vh;
     width: 100vw;
     z-index: 100;
+    transition: bottom 0.1s ease-in-out;
 `;
 
 
@@ -26,9 +27,15 @@ const BottomKickBox = styled.div`
 
 const MainKickBox = (props) => {
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(()=>{
+        setIsVisible(props.isVisible);
+    },[]);
+
     return (
         <>
-            <BottomKickBox>
+            <BottomKickBox isVisible={isVisible}>
                 <MainKickInfo KickInfo={props.KickInfo}></MainKickInfo>
                 <SubmitBtn isYellow={true} buttonText="촬영하기" ></SubmitBtn>
             </BottomKickBox>

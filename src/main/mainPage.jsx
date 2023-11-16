@@ -21,8 +21,6 @@ const NaverMap = styled.div`
     height: 100vh;
 `;
 
-let trigger = 0;
-
 const getBrandMarker = (brandId) => {
     const brandMarkers = {
       1: SsingMarker,
@@ -143,8 +141,12 @@ const MainPage = () => {
                 );
             });
         }
+
+        naver.maps.Event.addListener(map, 'click', ()=>{
+            setShowKickBox(false);
+        })
     
-    },[trigger]);
+    },[]);
 
     // function locationSuccess(position){
     //     setMyLocation({
@@ -169,10 +171,10 @@ const MainPage = () => {
     }
  
     return (
-        <MainContainer onClick={() => trigger++}>
+        <MainContainer>
             <NaverMap id="map"></NaverMap>
             <MainBottomBar></MainBottomBar>
-            { showKickBox && KickBoxInfo && <MainKickBox KickInfo={KickBoxInfo}></MainKickBox>}
+            { showKickBox && KickBoxInfo && <MainKickBox isVisible={showKickBox} KickInfo={KickBoxInfo}></MainKickBox>}
             {/* 각 마커 클릭 시에 MainKickBox가 활성화 되고 일련번호, 브랜드 번호를 전해줘야 함.. 이걸 어떻게 구현할것인가.. 낼 하자 */}
         </MainContainer>
     );
