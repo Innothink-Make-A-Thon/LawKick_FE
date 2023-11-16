@@ -20,7 +20,7 @@ const BottomKickBox = styled.div`
     width: 100vw;
     z-index: 100;
     transition: bottom 0.1s ease-in-out;
-`;
+`; 
 
 //맞다 위에 siren icon 추가!
 
