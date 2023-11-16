@@ -7,6 +7,7 @@ import Signin2 from "./signin/SignIn2"
 import Brand1 from "./brand/brand1"
 import Brand2 from "./brand/brand2"
 import Brand3 from "./brand/brand3"
+import Main from "./welcome/main"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/company/brand1" element={<Brand1 />} />
           <Route path="/company/brand2" element={<Brand2 />} />
           <Route path="/company/brand3" element={<Brand3 />} />
+          <Route path="/welcome" element={<Main />} />
         </Routes>
       </BrowserRouter>
   );
