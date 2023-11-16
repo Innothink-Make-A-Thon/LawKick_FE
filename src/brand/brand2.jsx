@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
+import { ChromePicker } from 'react-color';
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -38,7 +39,6 @@ const InputBox = styled.input`
   border-radius: 4px;
   padding: 8px;
   margin-top: 0.5rem;
-  margin-left: 1rem;
   font-family: Pretendard Variable;
   font-size: 15px;
   color: #1d1d1e;
@@ -52,16 +52,46 @@ const InputBox = styled.input`
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 `;
 
+const ColorPreview = styled.div`
+  width: 48px;
+  height: 48px;
+  border: 1px solid #b9b9bb;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  position: absolute;
+  right: 20px;
+  top: 45%;
+  transform: translateY(-50%);
+  background-color: ${(props) => props.color || "#ffffff"};
+`;
+
+
+const CenterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative; 
+  padding: 50px
+`;
+
 function Brand2() {
   const [inputValue, setInputValue] = useState("");
-  const isNextBtnEnabled = inputValue.trim() !== "";
+  const [selectedColor, setSelectedColor] = useState("#000000");
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    const value = e.target.value;
+    setInputValue(value);
+    setSelectedColor(value);
+  };
+
+  const handleColorChange = (color) => {
+    const hexColor = color.hex;
+    setSelectedColor(hexColor);
+    setInputValue(hexColor);
   };
 
   const handleNextBtnClick = () => {
-    // Handle the logic when NextBtn is clicked
     console.log("Next button clicked");
   };
 
@@ -81,9 +111,18 @@ function Brand2() {
           value={inputValue}
           onChange={handleInputChange}
         />
+        <ColorPreview color={selectedColor} />
       </TextContainer2>
+      
+      <CenterContainer>
+      <ChromePicker
+        color={selectedColor}
+        onChange={handleColorChange}
+      />
+      </CenterContainer>
+
       <NextBtn
-        isEnabled={isNextBtnEnabled}
+        isEnabled={inputValue.trim() !== "" && selectedColor !== ""}
         onClick={handleNextBtnClick}
         buttonText="다음"
       />
