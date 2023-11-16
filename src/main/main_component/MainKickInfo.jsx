@@ -46,7 +46,7 @@ const MainKickInfo = (props) => {
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
-                <SerialCode>{props.KickInfo.KickId}</SerialCode>
+                <SerialCode>{props.KickInfo.kickId}</SerialCode>
             </SerialBox>
         </InfoContainer>
     );

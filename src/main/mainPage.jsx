@@ -167,7 +167,7 @@ const MainPage = () => {
 
         return kickboard ? {"kickId" : kickboard.kickId, "brandId" : kickboard.brandId} : null;
     }
-
+ 
     return (
         <MainContainer onClick={() => trigger++}>
             <NaverMap id="map"></NaverMap>
