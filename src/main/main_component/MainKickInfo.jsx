@@ -63,7 +63,7 @@ const MainKickInfo = (props) => {
         setBrandLogo(getBrandLogo(props.KickInfo.brandId));
     },[props.KickInfo.brandId]);
 
-    return (
+    return ( 
         <InfoContainer>
             <Logo src={brandLogo}></Logo>
             <SelectionBar></SelectionBar>
