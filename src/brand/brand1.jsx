@@ -112,7 +112,7 @@ function Brand1() {
           <option value="씽">씽</option>
           <option value="스윕">스윙</option>
           <option value="씽씽">씽씽</option>
-          <option value="지쿠터">지쿠터</option>
+          <option value="지쿠">지쿠</option>
           <option value="킥고잉">킥고잉</option>
         </Dropdown>
         <ArrowIcon isOpen={isOpen}>&#9660;</ArrowIcon>
