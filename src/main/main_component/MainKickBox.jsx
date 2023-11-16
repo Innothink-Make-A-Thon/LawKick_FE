@@ -22,7 +22,6 @@ const BottomKickBox = styled.div`
     transition: bottom 0.1s ease-in-out;
 `;
 
-
 //맞다 위에 siren icon 추가!
 
 const MainKickBox = (props) => {
