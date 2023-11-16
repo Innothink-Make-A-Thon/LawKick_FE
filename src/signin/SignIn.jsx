@@ -43,7 +43,7 @@ const InputBox = styled.input`
   border-radius: 4px;
   padding: 8px;
   margin-top: 0.5rem;
-  margin-left: 1rem;
+
   font-family: Pretendard Variable;
   font-size: 15px;
   color: #1d1d1e;
@@ -65,6 +65,9 @@ const TextContainer2 = styled.div`
   margin-top: 2rem;
 `;
 
+const Container = styled.div`
+`
+
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -74,6 +77,7 @@ function SignIn() {
   return (
     <div>
       <Backbtn />
+      <Container>
       <TextContainer>
         <AskText>로그인을 해주세요</AskText>
       </TextContainer>
@@ -96,7 +100,7 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </TextContainer2>
-
+      </Container>  
       <NextBtn
         isEnabled={isNextBtnEnabled}
         onClick={() => console.log("Next button clicked")}
