@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../logo/b_logo.png";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PageContainer = styled.div`
   background-color: #fdc727;
@@ -57,8 +58,10 @@ const StyledLink = styled.a`
 `;
 
 function Main() {
+    const navigate = useNavigate();
   const handleClick = () => {
     console.log("Button clicked!");
+    navigate("/welcome/tutorial");
   };
 
   return (

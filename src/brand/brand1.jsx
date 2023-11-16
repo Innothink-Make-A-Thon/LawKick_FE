@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Backbtn from "../components/Backtbn";
+import TopBar from '../components/TopBar'
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
+import Backbtn from "../components/Backtbn";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -90,7 +91,7 @@ function Brand1() {
 
   return (
     <div>
-      <Backbtn />
+      <Backbtn/>
       <TextContainer>
         <AskText>브랜드를 등록해보세요</AskText>
         <AskText2>브랜드별로 마커 색상을 등록할 수 있어요</AskText2>
