@@ -24,12 +24,12 @@ const BottomKickBox = styled.div`
 
 //맞다 위에 siren icon 추가!
 
-const MainKickBox = () => {
+const MainKickBox = (props) => {
 
     return (
         <>
             <BottomKickBox>
-                <MainKickInfo></MainKickInfo>
+                <MainKickInfo KickInfo={props.KickInfo}></MainKickInfo>
                 <SubmitBtn isYellow={true} buttonText="촬영하기" ></SubmitBtn>
             </BottomKickBox>
         </>

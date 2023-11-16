@@ -36,7 +36,9 @@ const SerialCode = styled.p`
     font-weight: bold;
 `;
 
-const MainKickInfo = () => {
+const MainKickInfo = (props) => {
+
+    console.log(props);
 
     return (
         <InfoContainer>
@@ -44,7 +46,7 @@ const MainKickInfo = () => {
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
-                <SerialCode>ZVYAAA</SerialCode>
+                <SerialCode>{props.KickInfo.KickId}</SerialCode>
             </SerialBox>
         </InfoContainer>
     );

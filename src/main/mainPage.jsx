@@ -21,6 +21,8 @@ const NaverMap = styled.div`
     height: 100vh;
 `;
 
+let trigger = 0;
+
 const getBrandMarker = (brandId) => {
     const brandMarkers = {
       1: SsingMarker,
@@ -47,7 +49,9 @@ const dummy = {
 const MainPage = () => {
 
     const [showKickBox, setShowKickBox] = useState(false);
+    const [KickBoxInfo, setKickBoxInfo] = useState({});
     // const [myLocation, setMyLocation] = useState({});
+    let markers = [];
 
     // useEffect(()=>{
     //     if (navigator.geolocation) {
@@ -106,6 +110,7 @@ const MainPage = () => {
     
             let marker = new naver.maps.Marker(markerOptions);
             marker.setClickable(true);
+            markers.push(marker);
         });
 
         naver.maps.Event.once(map, 'init', () => { //왼쪽 하단 버튼 클릭 시 생기는 이벤트 처리
@@ -128,8 +133,18 @@ const MainPage = () => {
                 window.location.reload();
             })
         });
+
+        console.log(markers);
+        for (let i=0; i<markers.length; i++){
+            naver.maps.Event.addListener(markers[i], 'click', ()=>{
+                setShowKickBox(true);
+                setKickBoxInfo(
+                    getKickId(markers[i], dummy.kickboardList)
+                );
+            });
+        }
     
-    },[]);
+    },[trigger]);
 
     // function locationSuccess(position){
     //     setMyLocation({
@@ -147,11 +162,17 @@ const MainPage = () => {
     //     alert('오류');
     // }
 
+    function getKickId(marker, kickboardList){
+        const kickboard = kickboardList.find((kick) => marker.icon.url === getBrandMarker(kick.brandId));
+
+        return kickboard ? {"kickId" : kickboard.kickId, "brandId" : kickboard.brandId} : null;
+    }
+
     return (
-        <MainContainer>
+        <MainContainer onClick={() => trigger++}>
             <NaverMap id="map"></NaverMap>
             <MainBottomBar></MainBottomBar>
-            { showKickBox && <MainKickBox></MainKickBox>}
+            { showKickBox && KickBoxInfo && <MainKickBox KickInfo={KickBoxInfo}></MainKickBox>}
             {/* 각 마커 클릭 시에 MainKickBox가 활성화 되고 일련번호, 브랜드 번호를 전해줘야 함.. 이걸 어떻게 구현할것인가.. 낼 하자 */}
         </MainContainer>
     );

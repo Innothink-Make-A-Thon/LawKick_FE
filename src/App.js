@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Signup from "./signup/SignUp"
 import Signin1 from "./signin/SignIn"
 import Signin2 from "./signin/SignIn2"
@@ -9,6 +9,7 @@ import Brand2 from "./brand/brand2"
 import Brand3 from "./brand/brand3"
 import Main from "./welcome/Main"
 import Tutorial from "./welcome/Tutorial";
+import MainPage from "./main/mainPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/company/brand3" element={<Brand3 />} />
           <Route path="/welcome" element={<Main />} />
           <Route path="/welcome/tutorial" element={<Tutorial />} />
+          <Route path="/main" element={<MainPage/>}/>
         </Routes>
       </BrowserRouter>
   );
