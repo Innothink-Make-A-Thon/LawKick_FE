@@ -33,6 +33,7 @@ const TextContainer = styled.div`
   justify-content: space-evenly;
   position: relative;
   margin-top: 1.5rem;
+  margin-left: 1rem;
 `;
 
 const DropdownContainer = styled.div`
@@ -40,6 +41,7 @@ const DropdownContainer = styled.div`
   width: 353px;
   height: 49px;
   margin-top: 40px;
+  margin-left:1rem;
 `;
 
 const Dropdown = styled.select`

@@ -44,7 +44,6 @@ const InputBox = styled.input`
   border-radius: 4px;
   padding: 8px;
   margin-top: 0.5rem;
-  margin-left: 1rem;
   font-family: Pretendard Variable;
   font-size: 15px;
   color: #1d1d1e;
