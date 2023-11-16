@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
+import Logoimg from "../logo/y.png";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -14,7 +15,6 @@ const AskText = styled.div`
   text-align: left;
   white-space: pre-line;
 `;
-
 
 const TextContainer = styled.div`
   display: flex;
@@ -53,36 +53,92 @@ const TextContainer2 = styled.div`
   margin-top: 2rem;
 `;
 
-function Brand3() {
-    const [email, setEmail] = useState("");
-    const navigate = useNavigate();
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Adjust the transparency here */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+`;
 
-    const handleNextBtnClick = () => {
-        console.log("Next button clicked");
-        navigate("/company/brand1");
-      };
-    
+const ModalContent = styled.div`
+  background: none;
+  padding: 20px;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+const LogoImage = styled.img`
+  width: 44.277px;
+  height: 72.003px;
+  flex-shrink: 0;
+  margin: 20px;
+`;
+
+const CenterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+`;
+
+function Brand3() {
+  const [email, setEmail] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNextBtnClick = () => {
+    setIsModalVisible(true);
+
+    setTimeout(() => {
+      setIsModalVisible(false);
+      navigate("/signup");
+    }, 3000); 
+  };
+
   return (
     <div>
       <Backbtn />
       <TextContainer>
-        <AskText>위치 api 담당자<br/>이메일을 알려주세요!</AskText>
+        <AskText>위치 API 담당자<br />이메일을 알려주세요!</AskText>
       </TextContainer>
       <TextContainer2>
-      <InputBox
+        <InputBox
           placeholder="example@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        </TextContainer2>
+      </TextContainer2>
 
-        <NextBtn
+      <NextBtn
         isEnabled={email.trim() !== ""}
         onClick={handleNextBtnClick}
         buttonText="브랜드 등록 신청을 하시겠습니까?"
       />
-    
-    
+
+      {isModalVisible && (
+        <ModalOverlay>
+          <CenterContainer>
+            <LogoImage src={Logoimg} alt="Logo" />
+            <ModalContent>
+              브랜드 등록 신청이<br />접수되었습니다!
+            </ModalContent>
+          </CenterContainer>
+        </ModalOverlay>
+      )}
     </div>
   );
 }

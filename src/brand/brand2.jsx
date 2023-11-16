@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
 import { ChromePicker } from 'react-color';
+import { useNavigate } from "react-router-dom";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -78,6 +79,7 @@ const CenterContainer = styled.div`
 function Brand2() {
   const [inputValue, setInputValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("#000000");
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -93,6 +95,7 @@ function Brand2() {
 
   const handleNextBtnClick = () => {
     console.log("Next button clicked");
+    navigate("/company/brand3");
   };
 
   return (
@@ -113,7 +116,7 @@ function Brand2() {
         />
         <ColorPreview color={selectedColor} />
       </TextContainer2>
-      
+
       <CenterContainer>
       <ChromePicker
         color={selectedColor}
