@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Backbtn from "../components/Backtbn";
+import TopBar from '../components/TopBar'
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
+import Backbtn from "../components/Backtbn";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -33,6 +34,7 @@ const TextContainer = styled.div`
   justify-content: space-evenly;
   position: relative;
   margin-top: 1.5rem;
+  margin-left: 1rem;
 `;
 
 const DropdownContainer = styled.div`
@@ -40,6 +42,7 @@ const DropdownContainer = styled.div`
   width: 353px;
   height: 49px;
   margin-top: 40px;
+  margin-left:1rem;
 `;
 
 const Dropdown = styled.select`
@@ -88,7 +91,7 @@ function Brand1() {
 
   return (
     <div>
-      <Backbtn />
+      <Backbtn/>
       <TextContainer>
         <AskText>브랜드를 등록해보세요</AskText>
         <AskText2>브랜드별로 마커 색상을 등록할 수 있어요</AskText2>
@@ -110,7 +113,7 @@ function Brand1() {
           <option value="씽">씽</option>
           <option value="스윕">스윙</option>
           <option value="씽씽">씽씽</option>
-          <option value="지쿠터">지쿠터</option>
+          <option value="지쿠">지쿠</option>
           <option value="킥고잉">킥고잉</option>
         </Dropdown>
         <ArrowIcon isOpen={isOpen}>&#9660;</ArrowIcon>

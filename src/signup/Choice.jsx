@@ -90,16 +90,12 @@ function Choice() {
     const [selectedBox, setSelectedBox] = useState(null);
     const navigate = useNavigate();
   
-    // 선택 여부에 따라 isEnabled 상태 설정
     const isNextBtnEnabled = selectedBox !== null;
   
-    // NextBtn 클릭 시 다른 URL로 이동
     const handleNextBtnClick = () => {
       if (selectedBox === "first") {
-        // If the first box is selected, navigate to /personal/signin
         navigate("/personal/signin");
       } else if (selectedBox === "second") {
-        // If the second box is selected, navigate to /company/signin
         navigate("/company/signin");
       }
     };
@@ -122,7 +118,7 @@ function Choice() {
         
         <SecondBox isSelected={selectedBox === "second"} onClick={() => setSelectedBox("second")}>
           <TextContainer>
-            <BoxTitle>신고 데이터를 받고 싶어요!<br /></BoxTitle>
+            <BoxTitle>로우킥과 함께 일하고 싶어요!<br /></BoxTitle>
             <BoxDescription>(기업 사용자)</BoxDescription>
           </TextContainer>
           <SvgContainer>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
+import Logoimg from "../logo/y.png";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -17,23 +18,10 @@ const AskText = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
   position: relative;
-  margin-left: -10rem;
   margin-top: 1.5rem;
-`;
-
-const LoginText = styled.div`
-  color: #1D1D1E;
-  font-family: Pretendard Variable;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px; /* 120% */
-  text-align: left;
-  white-space: pre-line;
   margin-left: 1rem;
 `;
 
@@ -65,28 +53,69 @@ const TextContainer2 = styled.div`
   margin-top: 2rem;
 `;
 
-function SignIn2() {
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Adjust the transparency here */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+`;
+
+const ModalContent = styled.div`
+  background: none;
+  padding: 20px;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+const LogoImage = styled.img`
+  width: 44.277px;
+  height: 72.003px;
+  flex-shrink: 0;
+  margin: 20px;
+`;
+
+const CenterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+`;
+
+function Brand3() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const navigate = useNavigate();
-  const isNextBtnEnabled = email && password;
 
   const handleNextBtnClick = () => {
-    // Handle the logic when NextBtn is clicked
-    console.log("Next button clicked");
-    // Navigate to the desired route
-    navigate("/company/brand1");
+    setIsModalVisible(true);
+
+    setTimeout(() => {
+      setIsModalVisible(false);
+      navigate("/signup");
+    }, 3000); 
   };
 
   return (
     <div>
       <Backbtn />
       <TextContainer>
-        <AskText>로그인을 해주세요</AskText>
+        <AskText>위치 API 담당자<br />이메일을 알려주세요!</AskText>
       </TextContainer>
-
       <TextContainer2>
-        <LoginText>이메일(아이디)</LoginText>
         <InputBox
           placeholder="example@gmail.com"
           value={email}
@@ -94,23 +123,24 @@ function SignIn2() {
         />
       </TextContainer2>
 
-      <TextContainer2>
-        <LoginText>비밀번호</LoginText>
-        <InputBox
-          type="password"
-          placeholder="비밀번호 입력"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </TextContainer2>
-      
       <NextBtn
-        isEnabled={isNextBtnEnabled}
+        isEnabled={email.trim() !== ""}
         onClick={handleNextBtnClick}
-        buttonText="로그인"
+        buttonText="브랜드 등록 신청을 하시겠습니까?"
       />
+
+      {isModalVisible && (
+        <ModalOverlay>
+          <CenterContainer>
+            <LogoImage src={Logoimg} alt="Logo" />
+            <ModalContent>
+              브랜드 등록 신청이<br />접수되었습니다!
+            </ModalContent>
+          </CenterContainer>
+        </ModalOverlay>
+      )}
     </div>
   );
 }
 
-export default SignIn2;
+export default Brand3;
