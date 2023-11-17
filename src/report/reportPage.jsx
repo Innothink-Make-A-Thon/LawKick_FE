@@ -14,7 +14,7 @@ const ReportPage = () => {
             <ReportKickInfo></ReportKickInfo>
             <ReportImage></ReportImage>
             <ReportDetail></ReportDetail>
-            <ReportSubmit></ReportSubmit>
+            {/* <ReportSubmit></ReportSubmit> */}
         </>
     );
 };

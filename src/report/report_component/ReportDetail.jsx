@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import ReportSubmit from "./ReportSubmit";
+import axios from "axios";
 
 const DetailContainer = styled.div`
     width: auto;
@@ -48,19 +50,39 @@ const DetailInput = styled.textarea`
 `;
 
 const ReportDetail = () => {
+
+    const [noHelmet, setNoHelmet] = useState(false);
+    const [twoPeople, setTwoPeople] = useState(false);
+    const [detailText, setDetailText] = useState();
+
+    const ClickHelmetBtn = () => {
+        // console.log(noHelmet);
+        let temp = !noHelmet;
+        setNoHelmet(temp);
+        console.log(noHelmet);
+    };
+
+    const ClickTwoBtn = () => {
+        let temp = twoPeople;
+        setTwoPeople(!temp);
+        console.log(twoPeople);
+    };
  
     return (
+        <>
         <DetailContainer>
             <Title>신고 상황 선택</Title>
             <LittleTitle>다중 선택 가능</LittleTitle>
             <DetailSelectContainer>
-                <IllegalBtn>헬맷 미착용</IllegalBtn>
-                <IllegalBtn>2인 이상 탑승</IllegalBtn>
+                <IllegalBtn onClick={ClickHelmetBtn}>헬맷 미착용</IllegalBtn>
+                <IllegalBtn onClick={ClickTwoBtn}>2인 이상 탑승</IllegalBtn>
             </DetailSelectContainer>
             <Title>상세 설명</Title>
             <LittleTitle>이 칸만 적어도 신고가 가능해요!</LittleTitle>
             <DetailInput placeholder="(예: 12시 쯤 교복을 입은 학생 2명이 타는 걸 발견)"></DetailInput>
         </DetailContainer>
+        <ReportSubmit></ReportSubmit>
+        </>
     );
 };
 

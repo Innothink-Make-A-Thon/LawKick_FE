@@ -6,6 +6,7 @@ import DeerLogo from "../../main/main_img/Deer_Logo.png";
 import SwingLogo from "../../main/main_img/Swing_Logo.png";
 import GcooLogo from "../../main/main_img/Gcooter_Logo.png";
 import KickLogo from "../../main/main_img/Kick_Logo.png";
+import ReportSubmit from "./ReportSubmit";
 
 const InfoContainer = styled.div`
     display: flex;
@@ -56,6 +57,7 @@ const getBrandLogo = (brandId) => {
 const ReportKickInfo = () => {
  
     return (
+        <>
         <InfoContainer>
             <Logo src={SsingLogo}></Logo>
             <SelectionBar></SelectionBar>
@@ -64,6 +66,8 @@ const ReportKickInfo = () => {
                 <SerialCode>ZZZZZZ</SerialCode>
             </SerialBox>
         </InfoContainer>
+        <ReportSubmit></ReportSubmit>
+        </>
     );
 };
 
