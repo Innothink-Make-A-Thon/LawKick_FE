@@ -32,6 +32,8 @@ const TextContainer2 = styled.div`
   position: relative;
   margin-left: 1rem;
   margin-top: 2rem;
+  width: 344px;
+  height: 48px;
 `;
 
 const InputBox = styled.input`
@@ -59,10 +61,9 @@ const ColorPreview = styled.div`
   height: 48px;
   border: 1px solid #b9b9bb;
   border-radius: 4px;
-  margin-top: 0.5rem;
   position: absolute;
-  right: 20px;
-  top: 45%;
+  right: 1px;
+  top: 85%;
   transform: translateY(-50%);
   background-color: ${(props) => props.color || "#ffffff"};
 `;
