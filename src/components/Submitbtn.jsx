@@ -9,6 +9,7 @@ const StyledSubmitBtn = styled.button`
   transform: translateX(-50%);
   width: 65%;
   min-width: 88px;
+  max-width: 400px;
   height: 5%; 
   padding: 0; 
   justify-content: center;
