@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faGear, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import Logo from '../logo/logotxt.png'
 
 library.add(faArrowLeft, faMagnifyingGlass, faGear);
 
@@ -21,7 +20,9 @@ const TopBarBox = styled.div`
   height: 7vh;
   width: 100vw;
   z-index: 2;
+  border-bottom: 1px solid #D9D9D9;
 `;
+
 
 const TopBarBackBtn = styled.div`
   font-size: 1.5rem;
@@ -33,9 +34,13 @@ const TopBarTitleBox = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 20px;
-  font-weight: 800;
-  color: #f1d00a;
+  color: #1D1D1E;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 100% */
   cursor: pointer;
 `;
 
@@ -58,12 +63,12 @@ const TopBar = () => {
       <TopBarBox>
         <TopBarBackBtn onClick={moveToBack}>
           {!isMainPage && (
-            <FontAwesomeIcon icon={faArrowLeft} style={{ color: "black" }} />
+            <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#1D1D1E" }} />
           )}
         </TopBarBackBtn>
 
         <TopBarTitleBox onClick={moveToMain}>
-          <img src={Logo} alt="Logo" style={{ height: '20px', marginRight: '8px' }} />
+          마이페이지
         </TopBarTitleBox>
       </TopBarBox>
     </>

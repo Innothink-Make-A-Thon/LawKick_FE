@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Backbtn from "../components/Backtbn";
+import TopBar from "../components/TopBar";
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
 import Logoimg from "../logo/y.png";
@@ -14,6 +14,7 @@ const AskText = styled.div`
   line-height: 34.5px;
   text-align: left;
   white-space: pre-line;
+  margin-top: 3rem;
 `;
 
 const TextContainer = styled.div`
@@ -111,7 +112,7 @@ function Brand3() {
 
   return (
     <div>
-      <Backbtn />
+      <TopBar />
       <TextContainer>
         <AskText>위치 API 담당자<br />이메일을 알려주세요!</AskText>
       </TextContainer>

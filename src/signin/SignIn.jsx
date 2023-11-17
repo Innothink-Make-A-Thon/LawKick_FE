@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import TopBar from "../components/TopBar";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
 
@@ -21,7 +22,7 @@ const TextContainer = styled.div`
   align-items: center;
   position: relative;
   margin-left: -10rem;
-  margin-top: 1.5rem;
+  margin-top: 5rem;
 `;
 
 const LoginText = styled.div`
@@ -76,7 +77,7 @@ function SignIn() {
 
   return (
     <div>
-      <Backbtn />
+      <TopBar />
       <Container>
       <TextContainer>
         <AskText>로그인을 해주세요</AskText>

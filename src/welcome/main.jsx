@@ -61,15 +61,15 @@ function Main() {
     const navigate = useNavigate();
   const handleClick = () => {
     console.log("Button clicked!");
-    navigate("/welcome/tutorial");
+    navigate("/signup");
   };
 
   return (
     <PageContainer>
       <CenterContainer>
         <LogoImage src={Logo} alt="Logo" />
-        <StyledButton onClick={handleClick}>튜토리얼 보기</StyledButton>
-        <StyledLink href="/signup">바로 시작하기</StyledLink>
+        <StyledButton onClick={handleClick}>바로 시작하기</StyledButton>
+        <StyledLink href="/welcome/tutorial">튜토리얼 보기</StyledLink>
       </CenterContainer>
     </PageContainer>
   );
