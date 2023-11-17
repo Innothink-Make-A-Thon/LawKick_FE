@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Backbtn from "../components/Backtbn";
+import TopBar from "../components/TopBar";
 import NextBtn from "../components/Nextbtn";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +23,7 @@ const TextContainer = styled.div`
   align-items: center;
   position: relative;
   margin-left: -10rem;
-  margin-top: 1.5rem;
+  margin-top: 5rem;
 `;
 
 const LoginText = styled.div`
@@ -72,15 +73,13 @@ function SignIn2() {
   const isNextBtnEnabled = email && password;
 
   const handleNextBtnClick = () => {
-    // Handle the logic when NextBtn is clicked
     console.log("Next button clicked");
-    // Navigate to the desired route
     navigate("/company/brand1");
   };
 
   return (
     <div>
-      <Backbtn />
+      <TopBar />
       <TextContainer>
         <AskText>로그인을 해주세요</AskText>
       </TextContainer>

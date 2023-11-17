@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import Backbtn from "../components/Backtbn";
+import TopBar from "../components/TopBar";
 import NextBtn from "../components/Nextbtn";
 import { ChromePicker } from 'react-color';
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const AskText = styled.div`
   line-height: 34.5px;
   text-align: left;
   white-space: pre-line;
+  margin-top: 3rem;
 `;
 
 const TextContainer = styled.div`
@@ -100,7 +101,7 @@ function Brand2() {
 
   return (
     <div>
-      <Backbtn />
+      <TopBar />
       <TextContainer>
         <AskText>
           브랜드 고유 색상 코드를 <br />
