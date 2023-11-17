@@ -49,12 +49,13 @@ const DetailInput = styled.textarea`
     }
 `;
 
-const ReportDetail = () => {
+const ReportDetail = (props) => {
 
     const [noHelmet, setNoHelmet] = useState(false);
     const [twoPeople, setTwoPeople] = useState(false);
     const [detailText, setDetailText] = useState();
     const [isYellow, setIsYellow] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
     let reportNumber = 1;//임시
 
     const ClickHelmetBtn = () => {
@@ -75,10 +76,13 @@ const ReportDetail = () => {
         setDetailText(e.target.value);
     };
 
+    let swagger = `http://13.209.203.240:8080/`;
+    let local = `http://172.20.10.2:8080/`;
+
     const submitAxios = async () => {
         try {
             const response = await axios.post(
-                `http://13.209.203.240:8080/api/report/${reportNumber}/submit`,
+                `${process.env.REACT_APP_HOME_URL}/api/report/${reportNumber}/submit`,
                 {
                     "serialNumber": "string",
                     "kickboardType": "SINGSING",
@@ -90,6 +94,8 @@ const ReportDetail = () => {
                   }
             );
             console.log(response);
+            props.propTrigger();
+
         } catch (error) {
             console.log("전송 실패", error);
         }

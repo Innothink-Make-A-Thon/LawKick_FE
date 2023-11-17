@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Img from "./TutorialImg.png";
+import Img from "./TutorialImg.svg";
 import Footer from "../components/Footer";
 
 const Image = styled.img`
