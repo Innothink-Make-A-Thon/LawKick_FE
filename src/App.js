@@ -10,6 +10,7 @@ import Brand3 from "./brand/brand3"
 import Main from "./welcome/Main"
 import Tutorial from "./welcome/Tutorial";
 import MainPage from "./main/mainPage";
+import ReportPage from "./report/reportPage";
 import MyPage from "./mypage/MyPage";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/welcome" element={<Main />} />
           <Route path="/welcome/tutorial" element={<Tutorial />} />
           <Route path="/main" element={<MainPage/>}/>
+          <Route path="/report" element={<ReportPage/>} />
           <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </BrowserRouter>

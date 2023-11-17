@@ -9,12 +9,13 @@ const StyledSubmitBtn = styled.button`
   transform: translateX(-50%);
   width: 65%;
   min-width: 88px;
+  max-width: 400px;
   height: 5%; 
   padding: 0; 
   justify-content: center;
   align-items: center;
   border-radius: 22px;
-  background: ${({ isYellow }) => (isYellow ? '#DADADA' : 'var(--main-yellow, #FDC727)')};
+  background: ${({ isYellow }) => (isYellow ? 'var(--main-yellow, #FDC727)' : '#DADADA')};
   color: black;
   border: none;
 `;
@@ -31,7 +32,7 @@ const TextStyle = styled.div`
 
 const SubmitBtn = ({ isYellow, buttonText }) => {
     return (
-      <StyledSubmitBtn>
+      <StyledSubmitBtn isYellow={isYellow}>
         <TextStyle>
             {buttonText}
         </TextStyle>
