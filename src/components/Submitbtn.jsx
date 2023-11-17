@@ -15,7 +15,7 @@ const StyledSubmitBtn = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 22px;
-  background: ${({ isYellow }) => (isYellow ? '#DADADA' : 'var(--main-yellow, #FDC727)')};
+  background: ${({ isYellow }) => (isYellow ? 'var(--main-yellow, #FDC727)' : '#DADADA')};
   color: black;
   border: none;
 `;
@@ -32,7 +32,7 @@ const TextStyle = styled.div`
 
 const SubmitBtn = ({ isYellow, buttonText }) => {
     return (
-      <StyledSubmitBtn>
+      <StyledSubmitBtn isYellow={isYellow}>
         <TextStyle>
             {buttonText}
         </TextStyle>

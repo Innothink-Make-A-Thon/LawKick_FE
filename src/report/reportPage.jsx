@@ -4,6 +4,7 @@ import ReportTopBar from "./report_component/ReportTopBar";
 import ReportKickInfo from "./report_component/ReportKickInfo";
 import ReportImage from "./report_component/ReportImage";
 import ReportDetail from "./report_component/ReportDetail";
+import ReportSubmit from "./report_component/ReportSubmit";
 
 const ReportPage = () => {
  
@@ -13,6 +14,7 @@ const ReportPage = () => {
             <ReportKickInfo></ReportKickInfo>
             <ReportImage></ReportImage>
             <ReportDetail></ReportDetail>
+            <ReportSubmit></ReportSubmit>
         </>
     );
 };

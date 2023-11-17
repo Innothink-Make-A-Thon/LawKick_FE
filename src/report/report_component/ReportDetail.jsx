@@ -18,24 +18,33 @@ const Title = styled.p`
     font-size: larger;
     font-weight: bold;
     margin-bottom: 5px;
-    margin-top: 8vw;
+    margin-top: 8%;
 `;
 
 const LittleTitle = styled.p`
     color: gray;
     margin-top: 0;
-    margin-bottom: 5vw;
+    margin-bottom: 5%;
 `;
 
 const IllegalBtn = styled.button`
-    
+    background: white;
+    border: 1px #D9D9D9 solid;
+    padding: 2% 12%;
+    border-radius: 8px;
 `;
 
 const DetailInput = styled.textarea`
-    width: 100%;
+    width: 95%;
     height: 15vh;
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 8px;
+    padding: 0.5rem;
+    resize: none;
+    margin-bottom: 13vh;
+    ::placeholder{
+        color: gray;
+    }
 `;
 
 const ReportDetail = () => {
