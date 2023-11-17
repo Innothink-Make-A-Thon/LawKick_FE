@@ -12,6 +12,7 @@ const MyPage = () => {
     <>
         <MyTopBar/>
         <Energy/>
+        <History/>
 
     </>
   );

@@ -78,7 +78,7 @@ const Explain = styled.div`
   font-weight: 500;
   line-height: 18px; 
   white-space: pre-line; 
-  margin-right:10px;
+  margin-right:12px;
 `;
 
 const Energy = () => {
