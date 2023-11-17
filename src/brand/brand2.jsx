@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import Backbtn from "../components/Backtbn";
+import TopBar from "../components/TopBar";
 import NextBtn from "../components/Nextbtn";
 import { ChromePicker } from 'react-color';
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const AskText = styled.div`
   line-height: 34.5px;
   text-align: left;
   white-space: pre-line;
+  margin-top: 3rem;
 `;
 
 const TextContainer = styled.div`
@@ -31,6 +32,8 @@ const TextContainer2 = styled.div`
   position: relative;
   margin-left: 1rem;
   margin-top: 2rem;
+  width: 344px;
+  height: 48px;
 `;
 
 const InputBox = styled.input`
@@ -58,10 +61,9 @@ const ColorPreview = styled.div`
   height: 48px;
   border: 1px solid #b9b9bb;
   border-radius: 4px;
-  margin-top: 0.5rem;
   position: absolute;
-  right: 20px;
-  top: 45%;
+  right: 1px;
+  top: 85%;
   transform: translateY(-50%);
   background-color: ${(props) => props.color || "#ffffff"};
 `;
@@ -100,7 +102,7 @@ function Brand2() {
 
   return (
     <div>
-      <Backbtn />
+      <TopBar />
       <TextContainer>
         <AskText>
           브랜드 고유 색상 코드를 <br />

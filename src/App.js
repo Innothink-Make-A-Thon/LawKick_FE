@@ -11,6 +11,7 @@ import Main from "./welcome/Main"
 import Tutorial from "./welcome/Tutorial";
 import MainPage from "./main/mainPage";
 import ReportPage from "./report/reportPage";
+import MyPage from "./mypage/MyPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/welcome/tutorial" element={<Tutorial />} />
           <Route path="/main" element={<MainPage/>}/>
           <Route path="/report" element={<ReportPage/>} />
+          <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </BrowserRouter>
   );
