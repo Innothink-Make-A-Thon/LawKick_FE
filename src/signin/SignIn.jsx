@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TopBar from "../components/TopBar";
 import Backbtn from "../components/Backtbn";
 import NextBtn from "../components/Nextbtn";
+import { useNavigate } from "react-router-dom";
 
 const AskText = styled.div`
   color: #1D1D1E;
@@ -75,6 +76,8 @@ function SignIn() {
 
   const isNextBtnEnabled = email && password;
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <TopBar />
@@ -104,7 +107,7 @@ function SignIn() {
       </Container>  
       <NextBtn
         isEnabled={isNextBtnEnabled}
-        onClick={() => console.log("Next button clicked")}
+        onClick={() => navigate("/main")}
         buttonText="로그인"
       />
     </div>
