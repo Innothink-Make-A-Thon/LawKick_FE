@@ -69,6 +69,18 @@ const IconImage = styled.img`
   height: 30.78px;
 `;
 
+const Explain = styled.div`
+  color: #A7A7A7;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; 
+  white-space: pre-line; 
+  margin-right:10px;
+`;
+
 const Energy = () => {
   const energyPercentage = 30;
 
@@ -91,6 +103,7 @@ const Energy = () => {
           <ProgressBarFill percentage={energyPercentage} />
           <IconImage src = {Marker} alt="Icon" percentage={energyPercentage} />
         </ProgressBar>
+        <Explain>100 E<br/>이때부터 사용가능해요</Explain>
     </>
   );
 };
