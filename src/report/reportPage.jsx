@@ -56,6 +56,7 @@ const ReportPage = () => {
 
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
+    const [updatedSerial, setUpdatedSerial] = useState();
 
     const submitAccept = () =>{
         setIsVisible(true);
@@ -65,12 +66,18 @@ const ReportPage = () => {
         },3000);
     };
 
+    const updateSerial = (vaule) => {
+      setUpdatedSerial(vaule);
+    };
+
+
+
     return (
         <>
             <ReportTopBar></ReportTopBar>
-            <ReportKickInfo></ReportKickInfo>
+            <ReportKickInfo onChange={updateSerial}></ReportKickInfo>
             <ReportImage selectedImage={selectedImage}></ReportImage>
-            <ReportDetail propTrigger={submitAccept}></ReportDetail>
+            <ReportDetail propTrigger={submitAccept} valudFromInfo={updatedSerial}></ReportDetail>
             {isVisible && (
         <ModalOverlay>
           <CenterContainer>
