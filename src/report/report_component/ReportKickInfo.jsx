@@ -7,6 +7,7 @@ import SwingLogo from "../../main/main_img/Swing_Logo.png";
 import GcooLogo from "../../main/main_img/Gcooter_Logo.png";
 import KickLogo from "../../main/main_img/Kick_Logo.png";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const InfoContainer = styled.div`
     display: flex;
@@ -55,16 +56,16 @@ const getBrandLogo = (brandName) => {
   };
 
 const ReportKickInfo = () => {
+    const { reportID } = useParams();
 
     const [serial, setSerial] = useState();
     const [brand, setBrand] = useState();
-    let reportNumber = 1;
 
     useEffect(()=>{
         const getReportInfo = async () => {
             try {
                 const response = await axios.get(
-                    `${process.env.REACT_APP_HOME_URL}/api/report/${reportNumber}`
+                    `${process.env.REACT_APP_HOME_URL}/api/report/${reportID}`
                 );
                 console.log(response);
                 console.log(response.data.result);
