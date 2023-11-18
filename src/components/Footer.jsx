@@ -8,7 +8,7 @@ const Footerbox = styled.div`
   border-top-right-radius: 30px;
   background: #FDC727;
   position: fixed;
-  bottom: ${props => (props.isHidden ? '-100px' : '0')};
+  bottom: ${props => (props.isHidden ? '-70px' : '0')};
   transition: bottom 0.3s ease-in-out;
   z-index: 2;
   box-shadow: 0 -5px 5px -5px #a6a6a6;
@@ -33,7 +33,8 @@ const StyledLink = styled.a`
 
 const Footer = () => {
   const [isHidden, setIsHidden] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const delta = 10;
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -43,17 +44,29 @@ const Footer = () => {
   }, []);
 
   const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const isScrollingDown = currentScrollPos > prevScrollPos;
+    const nowScrollTop = window.scrollY;
 
-    setIsHidden(isScrollingDown);
-    setPrevScrollPos(currentScrollPos);
+    if (Math.abs(lastScrollTop - nowScrollTop) <= delta) {
+      return;
+    }
+
+    if (nowScrollTop > lastScrollTop && nowScrollTop > window.innerHeight) {
+      // Scroll down
+      setIsHidden(true);
+    } else {
+      if (nowScrollTop + window.innerHeight < document.body.offsetHeight) {
+        // Scroll up
+        setIsHidden(false);
+      }
+    }
+
+    setLastScrollTop(nowScrollTop);
   };
 
   return (
     <>
       <Footerbox isHidden={isHidden}>
-      <StyledLink href="/signup">바로 시작하기</StyledLink>
+        <StyledLink href="/signup">바로 시작하기</StyledLink>
       </Footerbox>
     </>
   );
