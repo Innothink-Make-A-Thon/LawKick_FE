@@ -22,7 +22,6 @@ const BottomKickBox = styled.div`
     transition: bottom 0.1s ease-in-out;
 `; 
 
-//맞다 위에 siren icon 추가!
 
 const MainKickBox = (props) => {
 
@@ -36,7 +35,7 @@ const MainKickBox = (props) => {
         <>
             <BottomKickBox isVisible={isVisible}>
                 <MainKickInfo KickInfo={props.KickInfo}></MainKickInfo>
-                <SubmitBtn isYellow={true} buttonText="촬영하기" ></SubmitBtn>
+                <SubmitBtn isYellow={true} buttonText="촬영하기" KickInfo={props.KickInfo}></SubmitBtn>
             </BottomKickBox>
         </>
     );
