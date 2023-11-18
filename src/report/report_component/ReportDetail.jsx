@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ReportSubmit from "./ReportSubmit";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const DetailContainer = styled.div`
     width: auto;
@@ -56,7 +57,8 @@ const ReportDetail = (props) => {
     const [detailText, setDetailText] = useState();
     const [isYellow, setIsYellow] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
-    let reportNumber = 1;//임시
+    const {reportID} = useParams();
+
 
     const ClickHelmetBtn = () => {
         // console.log(noHelmet);
@@ -79,7 +81,7 @@ const ReportDetail = (props) => {
     const submitAxios = async () => {
         try {
             const response = await axios.post(
-                `${process.env.REACT_APP_HOME_URL}/api/report/${reportNumber}/submit`,
+                `${process.env.REACT_APP_HOME_URL}/api/report/${reportID}/submit`,
                 {
                     "serialNumber": "string",
                     "kickboardType": "SINGSING",
