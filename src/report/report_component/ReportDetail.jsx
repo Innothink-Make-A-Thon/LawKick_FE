@@ -35,6 +35,7 @@ const IllegalBtn = styled.button`
     border: ${({isSelected}) => (isSelected ? '1px #FDC727 solid' : '1px #D9D9D9 solid')};
     padding: 2% 12%;
     border-radius: 8px;
+    color: black;
 `;
 
 const DetailInput = styled.textarea`
