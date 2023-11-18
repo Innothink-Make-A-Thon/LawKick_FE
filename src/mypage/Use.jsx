@@ -44,18 +44,19 @@ margin-top: -30px;
   return (
     <>
         <Container>
-        <Title>[사용] </Title>
+        <Title>[사용] 지쿠 1일 이용권 쿠폰 발급씽씽 10% 할인 쿠폰 발급</Title>
         <Date>2023-11-12</Date>
         <Energy>-20E</Energy>
         </Container>
         <Container>
-        <Title>[사용] </Title>
+        <Title>[사용] 씽씽 10% 할인 쿠폰 발급</Title>
         <Date>2023-11-13</Date>
         <Energy>-10E</Energy>
         </Container>
 
     </>
   );
+
 };
 
 
