@@ -60,7 +60,6 @@ const ReportDetail = (props) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const {reportID} = useParams();
 
-
     const ClickHelmetBtn = () => {
         // console.log(noHelmet);
         let temp = !noHelmet;
@@ -84,7 +83,7 @@ const ReportDetail = (props) => {
             const response = await axios.post(
                 `${process.env.REACT_APP_HOME_URL}/api/report/${reportID}/submit`,
                 {
-                    "serialNumber": "string",
+                    "serialNumber": `${props.valudFromInfo}`,
                     "kickboardType": "SINGSING",
                     "latitude": 0,
                     "longitude": 0,
