@@ -57,12 +57,6 @@ const InsertSerialCode = styled.input`
     width: 100%;
 `;
 
-const BrandOption = styled.option`
-    background-image: url(SsingLogo);
-    width: 1rem;
-    height: 1rem;
-`;
-
 const getBrandLogo = (brandName) => {
     const brandLogos = {
       1 : "SINGSING",
@@ -129,12 +123,12 @@ const ReportKickInfo = ({onChange}) => {
         <InfoContainer>
             <Logo src={brand ? brand : Logo_main}></Logo>
             {/* <select>
-                <BrandOption title={SsingLogo} value="1">씽씽</BrandOption>
-                <BrandOption title={BeamLogo} value="2">빔</BrandOption>
-                <BrandOption title={DeerLogo} value="3">디어</BrandOption>
-                <BrandOption title={GcooLogo} value="4">지쿠</BrandOption>
-                <BrandOption title={KickLogo} value="5">킥고잉</BrandOption>
-                <BrandOption title={SwingLogo} value="6">스윙</BrandOption>
+                <option value="1"><img src={SsingLogo}/>씽씽</option>
+                <option value="2"><img src={BeamLogo}/>빔</option>
+                <option value="3"><img src={DeerLogo}/>디어</option>
+                <option value="4"><img src={GcooLogo}/>지쿠</option>
+                <option value="5"><img src={KickLogo}/>킥고잉</option>
+                <option value="6"><img src={SwingLogo}/>스윙</option>
             </select> */}
             {/* <select
             onChange={handleBrandChange}
@@ -167,7 +161,7 @@ const ReportKickInfo = ({onChange}) => {
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
-                <InsertSerialCode type="text" value={serial ? serial : '인식 불가'} onChange={handleSerialChange}></InsertSerialCode>
+                <InsertSerialCode type="text" defaultValue={serial ? serial : '인식 불가'} value={serial} onChange={handleSerialChange}></InsertSerialCode>
             </SerialBox>
         </InfoContainer>
         </>
