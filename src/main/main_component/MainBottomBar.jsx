@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CameraButton from "../main_img/Camera_Button.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const BottomBarBox = styled.div`
   background-color: #fdc727;
@@ -69,7 +70,8 @@ const MainBottomBar = () => {
     }
   };
 
-  const inputRef = React.createRef();
+    const inputRef = React.createRef();
+
 
   return (
     <>

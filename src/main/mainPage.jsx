@@ -10,6 +10,7 @@ import GcooMarker from './main_img/Gcooter_Marker.png';
 import KickMarker from './main_img/Kickhoing_Marker.png';
 import SwingMarker from './main_img/Swing_Marker.png';
 import MainKickBox from "./main_component/MainKickBox";
+import MainPoint from "./main_component/MainPoint";
 
 const MainContainer = styled.div`
     width: 100vw;
@@ -203,6 +204,7 @@ const MainPage = () => {
  
     return (
         <MainContainer>
+            <MainPoint></MainPoint>
             <NaverMap id="map"></NaverMap>
             <MainBottomBar></MainBottomBar>
             { showKickBox && KickBoxInfo && <MainKickBox isVisible={showKickBox} KickInfo={KickBoxInfo}></MainKickBox>}

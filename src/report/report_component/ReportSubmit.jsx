@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
-import SubmitBtn from "../../components/Submitbtn";
+import SubmitBtn from "../../components/Submitbtn2";
 
 const BottomKickBox = styled.div`
     background-color: white;
