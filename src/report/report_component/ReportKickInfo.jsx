@@ -28,6 +28,7 @@ const SelectionBar = styled.div`
     background-color: #80808080;
     width: 0.1px;
     height: 70%;
+    
     margin: 0 2rem 0 2rem;
 `;
 
