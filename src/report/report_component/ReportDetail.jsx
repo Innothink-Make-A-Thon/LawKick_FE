@@ -76,9 +76,6 @@ const ReportDetail = (props) => {
         setDetailText(e.target.value);
     };
 
-    let swagger = `http://13.209.203.240:8080/`;
-    let local = `http://172.20.10.2:8080/`;
-
     const submitAxios = async () => {
         try {
             const response = await axios.post(

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CameraButton from "../main_img/Camera_Button.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const BottomBarBox = styled.div`
   background-color: #fdc727;
@@ -34,18 +35,17 @@ const HiddenInput = styled.input`
 `;
 
 const MainBottomBar = () => {
-const navigate = useNavigate();
-  const handleImageUpload = () => {
-    inputRef.current.click();
-  };
+    const navigate = useNavigate();
+    const handleImageUpload = () => {
+        inputRef.current.click();
+    };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    console.log("Selected file:", file);
-    navigate("/report");
-  };
+    const handleFileChange = async (event) => {
+        const file = event.target.files[0];
+      };
 
-  const inputRef = React.createRef();
+    const inputRef = React.createRef();
+
 
   return (
     <>

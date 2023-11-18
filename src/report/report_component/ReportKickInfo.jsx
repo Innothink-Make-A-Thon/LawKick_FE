@@ -6,7 +6,7 @@ import DeerLogo from "../../main/main_img/Deer_Logo.png";
 import SwingLogo from "../../main/main_img/Swing_Logo.png";
 import GcooLogo from "../../main/main_img/Gcooter_Logo.png";
 import KickLogo from "../../main/main_img/Kick_Logo.png";
-import ReportSubmit from "./ReportSubmit";
+import axios from "axios";
 
 const InfoContainer = styled.div`
     display: flex;
@@ -42,31 +42,51 @@ const SerialCode = styled.p`
     font-weight: bold;
 `;
 
-const getBrandLogo = (brandId) => {
+const getBrandLogo = (brandName) => {
     const brandLogos = {
-      1: SsingLogo,
-      2: BeamLogo,
-      3: DeerLogo,
-      4: GcooLogo,
-      5: KickLogo,
-      6: SwingLogo,
+      "SINGSING": SsingLogo,
+      "GCOO": BeamLogo,
+      "DEER": DeerLogo,
+      "GCOO": GcooLogo,
+      "KICKGOING": KickLogo,
+      "SWING": SwingLogo,
     };
-    return brandLogos[brandId];
+    return brandLogos[brandName];
   };
 
 const ReportKickInfo = () => {
+
+    const [serial, setSerial] = useState();
+    const [brand, setBrand] = useState();
+    let reportNumber = 1;
+
+    useEffect(()=>{
+        const getReportInfo = async () => {
+            try {
+                const response = await axios.get(
+                    `${process.env.REACT_APP_HOME_URL}/api/report/${reportNumber}`
+                );
+                console.log(response);
+                console.log(response.data.result);
+                setSerial(response.data.result.serialNumber);
+                setBrand(getBrandLogo(response.data.result.kickboardType));
+            } catch (error) {
+                console.log("error fetching data:", error);
+            }
+        };
+        getReportInfo();
+    },[]);
  
     return (
         <>
         <InfoContainer>
-            <Logo src={SsingLogo}></Logo>
+            <Logo src={brand}></Logo>
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
-                <SerialCode>ZZZZZZ</SerialCode>
+                <SerialCode>{serial ? serial : '인식 불가'}</SerialCode>
             </SerialBox>
         </InfoContainer>
-        <ReportSubmit></ReportSubmit>
         </>
     );
 };
