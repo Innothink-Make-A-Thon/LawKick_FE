@@ -44,15 +44,16 @@ margin-top: -30px;
   return (
     <>
         <Container>
-        <Title>[신고] 인하대학교 정문 2인 탑승 신고 보상</Title>
-        <Date>2023-11-17</Date>
-        <Energy>+30E</Energy>
+        <Title>[사용] </Title>
+        <Date>2023-11-12</Date>
+        <Energy>-20E</Energy>
         </Container>
         <Container>
-        <Title>[신고] 인하대학교 정문 2인 탑승 신고 보상</Title>
-        <Date>2023-11-17</Date>
-        <Energy>+30E</Energy>
+        <Title>[사용] </Title>
+        <Date>2023-11-13</Date>
+        <Energy>-10E</Energy>
         </Container>
+
     </>
   );
 };
