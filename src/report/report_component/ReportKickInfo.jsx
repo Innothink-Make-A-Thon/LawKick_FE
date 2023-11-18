@@ -6,6 +6,7 @@ import DeerLogo from "../../main/main_img/Deer_Logo.png";
 import SwingLogo from "../../main/main_img/Swing_Logo.png";
 import GcooLogo from "../../main/main_img/Gcooter_Logo.png";
 import KickLogo from "../../main/main_img/Kick_Logo.png";
+import Logo_main from "../../logo/y.png"
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -81,7 +82,7 @@ const ReportKickInfo = () => {
     return (
         <>
         <InfoContainer>
-            <Logo src={brand}></Logo>
+            <Logo src={brand ? brand : Logo_main}></Logo>
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
