@@ -13,6 +13,7 @@ const BottomBarBox = styled.div`
   align-items: center;
   position: fixed;
   bottom: 0;
+
   left: 0;
   right: 0;
   height: 13.5vh;
@@ -35,14 +36,39 @@ const HiddenInput = styled.input`
 `;
 
 const MainBottomBar = () => {
-    const navigate = useNavigate();
-    const handleImageUpload = () => {
-        inputRef.current.click();
-    };
+  const navigate = useNavigate();
+  const [imageFile, setImageFile] = useState(null);
 
-    const handleFileChange = async (event) => {
-        const file = event.target.files[0];
-      };
+  const handleImageUpload = () => {
+    inputRef.current.click();
+  };
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0];
+    console.log("Selected file:", file);
+
+    if (!file) {
+      console.error("No image selected");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const response = await fetch(`${process.env.REACT_APP_HOME_URL}/api/report`, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log("Server response:", data);
+      const reportID = data.result.reportId;
+      navigate(`/report/${reportID}`);
+    } catch (error) {
+      console.error("Error sending image:", error);
+    }
+  };
 
     const inputRef = React.createRef();
 
