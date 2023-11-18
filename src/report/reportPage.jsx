@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ReportTopBar from "./report_component/ReportTopBar";
 import ReportKickInfo from "./report_component/ReportKickInfo";
 import ReportImage from "./report_component/ReportImage";
 import ReportDetail from "./report_component/ReportDetail";
-import ReportSubmit from "./report_component/ReportSubmit";
 import Logoimg from "../main/main_img/Siren_Icon.png";
 
 const ModalOverlay = styled.div`
@@ -51,6 +51,8 @@ const LogoImage = styled.img`
 `;
 
 const ReportPage = () => {
+      const location = useLocation();
+    const selectedImage = location.state?.selectedImage;
 
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
@@ -67,7 +69,7 @@ const ReportPage = () => {
         <>
             <ReportTopBar></ReportTopBar>
             <ReportKickInfo></ReportKickInfo>
-            <ReportImage></ReportImage>
+            <ReportImage selectedImage={selectedImage}></ReportImage>
             <ReportDetail propTrigger={submitAccept}></ReportDetail>
             {isVisible && (
         <ModalOverlay>

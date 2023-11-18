@@ -1,54 +1,67 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import {useNavigate} from "react-router-dom";
 import CameraButton from "../main_img/Camera_Button.png";
-import GalleryButton from "../main_img/Gallery_Button.png";
+import { useNavigate } from "react-router-dom";
 
 const BottomBarBox = styled.div`
-    background-color: #FDC727;
-    border-radius: 20px 20px 0rem 0rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 13.5vh;
-    width: 100vw;
-    z-index: 100;
+  background-color: #fdc727;
+  border-radius: 20px 20px 0rem 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 13.5vh;
+  width: 100vw;
+  z-index: 100;
 `;
 
 const BottomBarNewsBtn = styled.div`
-    cursor: pointer;
+  cursor: pointer;
 `;
 
 const BtnImg = styled.img`
-    width: 3.5rem;
-    height: 3.5rem;
-`
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+`;
 
-const BtnImg2 = styled.img`
-    width: 2.5rem;
-    height: 2.5rem;
+const HiddenInput = styled.input`
+  display: none;
 `;
 
 const MainBottomBar = () => {
+const navigate = useNavigate();
+  const handleImageUpload = () => {
+    inputRef.current.click();
+  };
 
-    return (
-        <>
-            <BottomBarBox>
-                <BottomBarNewsBtn onClick={()=>console.log('갤러리 이동..')}>
-                    <BtnImg2 src={GalleryButton}/>
-                </BottomBarNewsBtn>
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    console.log("Selected file:", file);
+    navigate("/report");
+  };
 
-                <BottomBarNewsBtn onClick={()=>console.log('갤러리 이동..')}>
-                    <BtnImg src={CameraButton}/>
-                </BottomBarNewsBtn>
-            </BottomBarBox>
-        </>
-    );
+  const inputRef = React.createRef();
+
+  return (
+    <>
+      <BottomBarBox>
+        <BottomBarNewsBtn onClick={handleImageUpload}>
+          <BtnImg src={CameraButton} />
+          <HiddenInput
+            type="file"
+            ref={inputRef}
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+        </BottomBarNewsBtn>
+      </BottomBarBox>
+    </>
+  );
 };
 
 export default MainBottomBar;

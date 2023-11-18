@@ -35,12 +35,43 @@ const getBrandMarker = (brandId) => {
 
 const dummy = {
     "kickboardList" : [
-        {"kickId": "R2WK9C", "latitude": 37.450757, "longitude": 126.657565, "brandId" : 1}, //우리꺼
+        {"kickId": "R2WK9C", "latitude": 37.45041, "longitude": 126.6155999, "brandId" : 1}, //우리꺼
         {"kickId": "J2WK9C", "latitude": 37.449485, "longitude": 126.656090, "brandId" : 2},
         {"kickId": "K2WK9C", "latitude": 37.449085, "longitude": 126.656058, "brandId" : 3},
         {"kickId": "L2WK9C", "latitude": 37.450686, "longitude": 126.656884, "brandId" : 4},
         {"kickId": "M2WK9C", "latitude": 37.449187, "longitude": 126.655704, "brandId" : 5},
-        {"kickId": "N2WK9C", "latitude": 37.451002, "longitude": 126.656530, "brandId" : 6},
+        {"kickId": "N2WK9C", "latitude": 37.55002, "longitude": 126.626530, "brandId" : 3},
+        {'kickId': 'UZWJ49', 'latitude': 37.45041, 'longitude': 126.656466, 'brandId': 5},
+        {'kickId': '8I8OWY', 'latitude': 37.451898, 'longitude': 126.65711, 'brandId': 2},
+        {'kickId': '42CSR4', 'latitude': 37.44932, 'longitude': 126.6541, 'brandId': 3},
+        {'kickId': 'ZXN4QR', 'latitude': 37.449837, 'longitude': 126.653507, 'brandId': 2},
+        {'kickId': 'GMP62V', 'latitude': 37.450972, 'longitude': 126.659496, 'brandId': 1},
+        {'kickId': '5EVC0K', 'latitude': 37.449751, 'longitude': 126.65634, 'brandId': 2},
+        {'kickId': 'DK42JG', 'latitude': 37.451807, 'longitude': 126.653856, 'brandId': 3},
+        {'kickId': '3G1QQU', 'latitude': 37.449408, 'longitude': 126.657174, 'brandId': 6},
+        {'kickId': 'DK9WB0', 'latitude': 37.449896, 'longitude': 126.656077, 'brandId': 1},
+        {'kickId': 'HNBHGX', 'latitude': 37.45091, 'longitude': 126.650934, 'brandId': 3},
+        {'kickId': 'YU4CZY', 'latitude': 37.451031, 'longitude': 126.650339, 'brandId': 5},
+        {'kickId': '0EMD5L', 'latitude': 37.449699, 'longitude': 126.655243, 'brandId': 3},
+        {'kickId': '604L4U', 'latitude': 37.451849, 'longitude': 126.655081, 'brandId': 6},
+        {'kickId': '9030PP', 'latitude': 37.450101, 'longitude': 126.649888, 'brandId': 4},
+        {'kickId': '8YFEIS', 'latitude': 37.451171, 'longitude': 126.659802, 'brandId': 3},
+        {'kickId': 'M1QG8Z', 'latitude': 37.451238, 'longitude': 126.651292, 'brandId': 4},
+        {'kickId': '07TXL9', 'latitude': 37.450611, 'longitude': 126.652207, 'brandId': 4},
+        {'kickId': '1F5WA6', 'latitude': 37.450789, 'longitude': 126.655899, 'brandId': 5},
+        {'kickId': 'SKAK4B', 'latitude': 37.449782, 'longitude': 126.650855, 'brandId': 1},
+        {'kickId': 'WIUDE8', 'latitude': 37.450215, 'longitude': 126.658522, 'brandId': 5},
+        {'kickId': '2ETPOP', 'latitude': 37.451899, 'longitude': 126.656189, 'brandId': 6},
+        {'kickId': 'HWA4RW', 'latitude': 37.450098, 'longitude': 126.65765, 'brandId': 2},
+        {'kickId': '57L5B2', 'latitude': 37.449238, 'longitude': 126.657766, 'brandId': 3},
+        {'kickId': '056GSX', 'latitude': 37.451202, 'longitude': 126.652297, 'brandId': 3},
+        {'kickId': 'A54Q5L', 'latitude': 37.450964, 'longitude': 126.659737, 'brandId': 6},
+        {'kickId': 'Q5EIPT', 'latitude': 37.449866, 'longitude': 126.654052, 'brandId': 2},
+        {'kickId': 'HNZANY', 'latitude': 37.450952, 'longitude': 126.657948, 'brandId': 2},
+        {'kickId': 'U004N9', 'latitude': 37.450811, 'longitude': 126.656528, 'brandId': 4},
+        {'kickId': 'T5UHD9', 'latitude': 37.449263, 'longitude': 126.652546, 'brandId': 5},
+
+        
     ]
 };
 
