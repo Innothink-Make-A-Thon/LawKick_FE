@@ -16,14 +16,18 @@ const BottomKickBox = styled.div`
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 `; 
 
-//맞다 위에 siren icon 추가!
+const ReportSubmit = (props) => {
 
-const ReportSubmit = () => {
+    const handleClick = () => {
+        props.propFunction();
+    };
 
     return (
         <>
             <BottomKickBox>
-                <SubmitBtn isYellow={false} buttonText="신고 접수하기" ></SubmitBtn>
+                <div onClick={handleClick} >
+                    <SubmitBtn isYellow={props.isYellow} buttonText="신고 접수하기"></SubmitBtn>
+                </div>
             </BottomKickBox>
         </>
     );

@@ -12,6 +12,7 @@ import Tutorial from "./welcome/Tutorial";
 import MainPage from "./main/mainPage";
 import ReportPage from "./report/reportPage";
 import MyPage from "./mypage/MyPage";
+import SelectPage from "./select/selectPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/main" element={<MainPage/>}/>
           <Route path="/report" element={<ReportPage/>} />
           <Route path="/mypage" element={<MyPage/>}/>
+          <Route path="/admin/select" element={<SelectPage/>}/>
         </Routes>
       </BrowserRouter>
   );
