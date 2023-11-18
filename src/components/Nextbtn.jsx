@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const StyledNextBtn = styled.button`
-  position: fixed;
+  position: absolute;
+  margin-bottom: 5vw;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);

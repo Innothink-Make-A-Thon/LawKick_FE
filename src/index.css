@@ -12,12 +12,12 @@ code {
     monospace;
 }
 
-@font-face {
+/* @font-face {
   font-family: "SOYO Maple Bold";
   font-weight: normal;
   src: url("./fonts/SOYO Maple Bold.ttf") format("truetype");
-}
+} */
 
-body {
+/* body {
   font-family: "SOYO Maple Bold";
-}
+} */
