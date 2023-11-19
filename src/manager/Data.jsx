@@ -7,6 +7,7 @@ import DeerLogo from "./LogoImg/Deer_Logo.png";
 import SwingLogo from "./LogoImg/Swing_Logo.png";
 import GcooLogo from "./LogoImg/Gcoo_Logo.png";
 import KickLogo from "./LogoImg/Kick_Logo.png";
+import DefaultLogo from "../logo/y.png";
 
     const Num = styled.div`
         display: flex;
@@ -131,6 +132,7 @@ const getBrandLogo = (brandName) => {
       "GCOO":GcooLogo,
       "KICKGOING":KickLogo,
       "SWING":SwingLogo,
+      "LAWKICK" : DefaultLogo,
     };
     return brandLogos[brandName];
   };
