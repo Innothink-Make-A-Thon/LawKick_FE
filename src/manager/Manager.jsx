@@ -19,12 +19,18 @@ const Manager = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
+  const Container = styled.div`
+    margin-left:3%;
+  `
+let num = 1;
   return (
     <>
       <ManagerTopBar />
+      <Container>
       {reports.map((report) => (
-        <Data key={report.reportId} report={report} />
+    <Data key={report.reportId} report={report} num={num++}/>
       ))}
+      </Container>
     </>
   );
 };
