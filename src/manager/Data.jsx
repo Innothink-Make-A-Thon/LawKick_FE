@@ -136,13 +136,12 @@ const getBrandLogo = (brandName) => {
   };
 
 
-const Data = ({ report }) => {
-    let num = 1;
+const Data = ({ report, num }) => {
 
   return (
     <>
     <NNContainer>
-    <Num>{num++}</Num>
+    <Num>{num}</Num>
     <Name>kimInha의 신고 데이터</Name>
     </NNContainer>
 
