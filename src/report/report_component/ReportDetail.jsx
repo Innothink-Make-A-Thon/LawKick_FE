@@ -78,13 +78,21 @@ const ReportDetail = (props) => {
         setDetailText(e.target.value);
     };
 
+    console.log(props);
+
     const submitAxios = async () => {
-        try {
-            const response = await axios.post(
+        try{
+            const res = await(axios.get(`
+                ${process.env.REACT_APP_HOME_URL}/api/report/${reportID}
+            `));
+            console.log(res);
+
+            try {
+                const response = await axios.post(
                 `${process.env.REACT_APP_HOME_URL}/api/report/${reportID}/submit`,
                 {
-                    "serialNumber": `${props.valudFromInfo}`,
-                    "kickboardType": "SINGSING",
+                    "serialNumber": `${res.data.result.serialNumber}`,
+                    "kickboardType": `${res.data.result.kickboardType}`,
                     "latitude": 0,
                     "longitude": 0,
                     "content": detailText,
@@ -98,6 +106,9 @@ const ReportDetail = (props) => {
         } catch (error) {
             console.log("전송 실패", error);
         }
+    } catch (err) {
+        console.log("전송 실패", error);
+    }
     };
 
     const submitReport = () => {

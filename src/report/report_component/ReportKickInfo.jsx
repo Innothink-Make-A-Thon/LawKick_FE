@@ -59,24 +59,15 @@ const InsertSerialCode = styled.input`
 
 const getBrandLogo = (brandName) => {
     const brandLogos = {
-      1 : "SINGSING",
-      2 : "BEAM",
-      3 : "DEER",
-      4 : "GCOO",
-      5 : "KICKGOING",
-      6 : "SWING",
+      "SINGSING" : SsingLogo,
+      "BEAM" : BeamLogo,
+      "DEER" : DeerLogo,
+      "GCOO" : GcooLogo,
+      "KICKGOING" : KickLogo,
+      "SWING" : SwingLogo,
     };
     return brandLogos[brandName];
   };
-
-  const brandOptions = [
-    { value: "1", label: "씽씽", image: SsingLogo },
-    { value: "2", label: "빔", image: BeamLogo },
-    { value: "3", label: "디어", image: DeerLogo },
-    { value: "4", label: "지쿠", image: GcooLogo },
-    { value: "5", label: "킥고잉", image: KickLogo },
-    { value: "6", label: "스윙", image: SwingLogo },
-  ];
 
 const ReportKickInfo = ({onChange}) => {
     const { reportID } = useParams();
@@ -104,6 +95,7 @@ const ReportKickInfo = ({onChange}) => {
     const handleSerialChange = (e) => {
         const newValue = e.target.value;
         setSerial(newValue);
+        console.log(e.target.value);
         onChange(newValue);
     };
 
@@ -122,46 +114,15 @@ const ReportKickInfo = ({onChange}) => {
         <>
         <InfoContainer>
             <Logo src={brand ? brand : Logo_main}></Logo>
-            {/* <select>
-                <option value="1"><img src={SsingLogo}/>씽씽</option>
-                <option value="2"><img src={BeamLogo}/>빔</option>
-                <option value="3"><img src={DeerLogo}/>디어</option>
-                <option value="4"><img src={GcooLogo}/>지쿠</option>
-                <option value="5"><img src={KickLogo}/>킥고잉</option>
-                <option value="6"><img src={SwingLogo}/>스윙</option>
-            </select> */}
-            {/* <select
-            onChange={handleBrandChange}
-            options={[
-            { value: "1", label: <img src={SsingLogo} alt="SING Logo" /> },
-            { value: "2", label: <img src={BeamLogo} alt="Beam Logo" /> },
-            { value: "3", label: <img src={DeerLogo} alt="Deer Logo" /> },
-            { value: "4", label: <img src={GcooLogo} alt="GCOO Logo" /> },
-            { value: "5", label: <img src={KickLogo} alt="Kick Logo" /> },
-            { value: "6", label: <img src={SwingLogo} alt="Swing Logo" /> },
-            ]}
-            /> */}
-            {/* <Select
-          options={brandOptions}
-          value={selectedBrand}
-          onChange={handleBrandChange}
-          components={{
-            Option: ({ data }) => (
-              <div>
-                <img
-                  src={data.image}
-                  alt={data.label}
-                  style={{ width: "20px", height: "20px", marginRight: "8px" }}
-                />
-                {data.label}
-              </div>
-            ),
-          }}
-        /> */}
             <SelectionBar></SelectionBar>
             <SerialBox>
                 <SerialNumber>일련번호</SerialNumber>
-                <InsertSerialCode type="text" defaultValue={serial ? serial : '인식 불가'} value={serial} onChange={handleSerialChange}></InsertSerialCode>
+                <InsertSerialCode 
+                type="text" 
+                defaultValue={serial ? serial : '인식 불가'} 
+                value={serial} 
+                onChange={handleSerialChange}
+                ></InsertSerialCode>
             </SerialBox>
         </InfoContainer>
         </>
