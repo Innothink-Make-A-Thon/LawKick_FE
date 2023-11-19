@@ -14,6 +14,7 @@ import ReportPage from "./report/reportPage";
 import MyPage from "./mypage/MyPage";
 import SelectPage from "./select/selectPage";
 import NotFoundPage from "./notfound/notFoundPage";
+import Manager from "./manager/Manager";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/report/:reportID" element={<ReportPage/>} />
           <Route path="/mypage" element={<MyPage/>}/>
           <Route path="/admin/select" element={<SelectPage/>}/>
+          <Route path="/manager" element={<Manager/>}/>
           <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
       </BrowserRouter>

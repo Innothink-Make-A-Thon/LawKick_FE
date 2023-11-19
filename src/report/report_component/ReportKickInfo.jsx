@@ -60,7 +60,7 @@ const InsertSerialCode = styled.input`
 const getBrandLogo = (brandName) => {
     const brandLogos = {
       1 : "SINGSING",
-      2 : "GCOO",
+      2 : "BEAM",
       3 : "DEER",
       4 : "GCOO",
       5 : "KICKGOING",
