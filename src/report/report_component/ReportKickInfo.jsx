@@ -59,24 +59,15 @@ const InsertSerialCode = styled.input`
 
 const getBrandLogo = (brandName) => {
     const brandLogos = {
-      1 : "SINGSING",
-      2 : "BEAM",
-      3 : "DEER",
-      4 : "GCOO",
-      5 : "KICKGOING",
-      6 : "SWING",
+      "SINGSING" : SsingLogo,
+      "BEAM" : BeamLogo,
+      "DEER" : DeerLogo,
+      "GCOO" : GcooLogo,
+      "KICKGOING" : KickLogo,
+      "SWING" : SwingLogo,
     };
     return brandLogos[brandName];
   };
-
-  const brandOptions = [
-    { value: "1", label: "씽씽", image: SsingLogo },
-    { value: "2", label: "빔", image: BeamLogo },
-    { value: "3", label: "디어", image: DeerLogo },
-    { value: "4", label: "지쿠", image: GcooLogo },
-    { value: "5", label: "킥고잉", image: KickLogo },
-    { value: "6", label: "스윙", image: SwingLogo },
-  ];
 
 const ReportKickInfo = ({onChange}) => {
     const { reportID } = useParams();
