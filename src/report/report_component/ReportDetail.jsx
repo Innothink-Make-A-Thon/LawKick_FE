@@ -78,6 +78,8 @@ const ReportDetail = (props) => {
         setDetailText(e.target.value);
     };
 
+    console.log(props);
+
     const submitAxios = async () => {
         try {
             const response = await axios.post(

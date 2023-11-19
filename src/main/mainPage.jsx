@@ -101,7 +101,7 @@ const MainPage = () => {
         let mapOptions = { //지도 옵션
             // center: new naver.maps.LatLng(myLocation.latitude, myLocation.longitude),
             center: new naver.maps.LatLng(37.449657, 126.656565),
-            zoom: 18,
+            zoom: 16,
             // zoomControl: true, //늘였다 줄였다 컨트롤
             // zoomControlOptions: {
             //     style: naver.maps.ZoomControlStyle.SMALL,
@@ -131,9 +131,10 @@ const MainPage = () => {
                 map: map,
                 icon: {
                     url: getBrandMarker(kickboard.brandId),
-                    // size: new naver.maps.Size(50, 52),
+                    // size: new naver.maps.Size(50, 52), //48, 60 크기 원본 이미지
                     origin: new naver.maps.Point(0, 0),
                     anchor: new naver.maps.Point(25, 26),
+                    scaledSize: new naver.maps.Size(32, 40),
                 },
                 animation: naver.maps.Animation.DROP,
             };
@@ -176,10 +177,42 @@ const MainPage = () => {
 
         naver.maps.Event.addListener(map, 'click', ()=>{
             setShowKickBox(false);
-        })
+        });
+        
+        //1
+
+        const intervalId = setInterval(() => {
+            for (let i = 0; i < markers.length; i++) {
+                // let changedLat = markers[i].position._lat + Math.random() / 20000;
+                // let changedLng = markers[i].position._lng + Math.random() / 20000;
+                // markers[i].setPosition(new naver.maps.LatLng(changedLat, changedLng));
+
+                let changedLat, changedLng;
+                let x = 37.449657 - markers[i].position._lat;
+                let y = 126.656565 - markers[i].position._lng;
+
+                if(y/x > 0){
+                    changedLat = markers[i].position._lat + Math.random() / 20000;
+                    changedLng = markers[i].position._lng + Math.random() / 20000;
+                }
+                else if (y/x <0) {
+                    changedLat = markers[i].position._lat - (Math.random() / 20000);
+                    changedLng = markers[i].position._lng - (Math.random() / 20000);
+                }
+
+                else {
+                    changedLat = Math.random() > 0.5 ? markers[i].position._lat + Math.random() / 20000 : markers[i].position._lat - (Math.random() / 20000);
+                    changedLng = Math.random() > 0.5 ? markers[i].position._lng + Math.random() / 20000 : markers[i].position._lng - (Math.random() / 20000);
+                }
+                markers[i].setPosition(new naver.maps.LatLng(changedLat, changedLng));
+            }
+        }, 1550);
+
+        return () => clearInterval(intervalId);
     
     },[]);
 
+    
     // function locationSuccess(position){
     //     setMyLocation({
     //         latitude: position.coords.latitude,
