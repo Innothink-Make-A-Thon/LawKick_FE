@@ -87,12 +87,14 @@ const ReportDetail = (props) => {
             `));
             console.log(res);
 
+            let kickType = res.data.result.kickboardType === null ? "LAWKICK" : res.data.result.kickboardType;
+            console.log(kickType);
             try {
                 const response = await axios.post(
                 `${process.env.REACT_APP_HOME_URL}/api/report/${reportID}/submit`,
                 {
                     "serialNumber": `${res.data.result.serialNumber}`,
-                    "kickboardType": `${res.data.result.kickboardType}`,
+                    "kickboardType": `${res.data.result.kickboardType == null ? "LAWKICK" : res.data.result.kickboardType}`,
                     "latitude": 0,
                     "longitude": 0,
                     "content": detailText,
